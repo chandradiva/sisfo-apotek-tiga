@@ -38,7 +38,7 @@ public class AbsTableTransaksiResep extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 7;
+        return 8;
     }
 
     @Override
@@ -51,14 +51,16 @@ public class AbsTableTransaksiResep extends AbstractTableModel {
         } else if (columnIndex == 2) {
             return listTransaksi.get(rowIndex).getPasien().getNamaPasien();
         } else if (columnIndex == 3) {
-            return listTransaksi.get(rowIndex).getNoResep();
+            return listTransaksi.get(rowIndex).getPasien().getAlamatPasien();
         } else if (columnIndex == 4) {
+            return listTransaksi.get(rowIndex).getNoResep();
+        } else if (columnIndex == 5) {
             String tgl = "";
             if (listTransaksi.get(rowIndex).getTglPembuatan() != null) {
                 tgl = sdf.format(listTransaksi.get(rowIndex).getTglPembuatan());
             }
             return tgl;
-        } else if (columnIndex == 5) {
+        } else if (columnIndex == 6) {
             String tgl = "";
             if (listTransaksi.get(rowIndex).getTglPengambilan() != null) {
                 tgl = sdf.format(listTransaksi.get(rowIndex).getTglPengambilan());
@@ -78,13 +80,15 @@ public class AbsTableTransaksiResep extends AbstractTableModel {
         } else if (column == 2) {
             return "Nama Pasien";
         } else if (column == 3) {
-            return "No Resep";
+            return "Alamat Pasien";
         } else if (column == 4) {
-            return "Tanggal Dibuat";
+            return "No Resep";
         } else if (column == 5) {
+            return "Tanggal Dibuat";
+        } else if (column == 6) {
             return "Tanggal Pengambilan";
         } else {
-            return "Keterangan";
+            return "Keterangan Resep";
         }
     }
 

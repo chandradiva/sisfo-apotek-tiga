@@ -106,4 +106,10 @@ public class TransaksiResep {
     public void setNoResep(String noResep) {
         this.noResep = noResep;
     }
+    
+    @Override
+    public String toString() {
+        return noResep + " (" + dokter.getNamaDokter() + ")";
+    }
+    
 }

@@ -405,7 +405,6 @@ public class FormMasterPasien extends javax.swing.JFrame {
         jTable1.getColumnModel().getColumn(4).setMaxWidth(110);
         jTable1.getColumnModel().getColumn(5).setMaxWidth(210);
         jTable1.getColumnModel().getColumn(6).setMaxWidth(200);
-        jTable1.getColumnModel().getColumn(7).setMaxWidth(180);
     }
     
     private void clearForm() {

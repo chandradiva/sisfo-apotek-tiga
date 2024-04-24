@@ -23,4 +23,7 @@ public interface TransaksiResepDao {
     List<TransaksiResep> getListData(int start, int end, int tahun, String pasien);
     List<TransaksiResep> getListData(Date start, Date end);
     List<TransaksiResep> getListData(String pasien);
+    
+    TransaksiResep getLatestByPasien(long pasienId);
+    List<TransaksiResep> getListDataByPasienDesc(long pasienId);
 }

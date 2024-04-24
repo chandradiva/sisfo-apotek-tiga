@@ -6,7 +6,6 @@ package com.apoteklatte.sisfo.abstractmodel.table;
 
 import com.apoteklatte.sisfo.model.ModelObatMasuk;
 import com.apoteklatte.sisfo.utility.UtilityClass;
-import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 

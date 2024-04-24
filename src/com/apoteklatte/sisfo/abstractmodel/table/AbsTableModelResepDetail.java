@@ -66,7 +66,7 @@ public class AbsTableModelResepDetail extends AbstractTableModel {
         } else if (column == 3) {
             return "Tanggal Habis";
         } else {
-            return "Keterangan";
+            return "Keterangan Obat";
         }
     }
 

@@ -66,18 +66,18 @@ public class FormDetailTransaksiResep extends javax.swing.JFrame {
             absTableTransaksiDetailResep.setListTransaksi(transaksiDetailResepDaoImpl.getListDataByResep((int) __resep.getId()));
             jTable1.setModel(absTableTransaksiDetailResep);
             this.settingTable();
-            jTable1.invalidate();
-            
+            jTable1.invalidate(); 
         }
     }
     
     private void settingTable() {
         jTable1.getColumnModel().getColumn(0).setMaxWidth(60);
-        jTable1.getColumnModel().getColumn(1).setMaxWidth(180);
-        jTable1.getColumnModel().getColumn(2).setMaxWidth(110);
-        jTable1.getColumnModel().getColumn(3).setMaxWidth(80);
-        jTable1.getColumnModel().getColumn(4).setMaxWidth(150);
-        jTable1.getColumnModel().getColumn(5).setMaxWidth(200);
+        jTable1.getColumnModel().getColumn(1).setMaxWidth(100);
+        jTable1.getColumnModel().getColumn(2).setMaxWidth(180);
+        jTable1.getColumnModel().getColumn(3).setMaxWidth(110);
+        jTable1.getColumnModel().getColumn(4).setMaxWidth(80);
+        jTable1.getColumnModel().getColumn(5).setMaxWidth(150);
+        jTable1.getColumnModel().getColumn(6).setMaxWidth(200);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -106,6 +106,7 @@ public class FormDetailTransaksiResep extends javax.swing.JFrame {
         txtAlamat = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
         txtNoResep = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
@@ -119,7 +120,7 @@ public class FormDetailTransaksiResep extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Detail Transaksi Resep Obat");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Transaksi Resep", 0, 0, new java.awt.Font("Arial", 1, 13))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Transaksi Resep", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 13))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel2.setText("Nama Dokter:");
@@ -128,7 +129,7 @@ public class FormDetailTransaksiResep extends javax.swing.JFrame {
         jLabel3.setText("Nama Pasien:");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel4.setText("Keterangan:");
+        jLabel4.setText("Keterangan");
 
         txtDokter.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         txtDokter.setEnabled(false);
@@ -168,6 +169,9 @@ public class FormDetailTransaksiResep extends javax.swing.JFrame {
         txtNoResep.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         txtNoResep.setEnabled(false);
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel9.setText("Resep:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -178,7 +182,8 @@ public class FormDetailTransaksiResep extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel8))
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtDokter)
@@ -229,7 +234,10 @@ public class FormDetailTransaksiResep extends javax.swing.JFrame {
                             .addComponent(txtPasien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(3, 3, 3)
+                                .addComponent(jLabel9))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -287,7 +295,7 @@ public class FormDetailTransaksiResep extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jScrollPane2)
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -419,6 +427,7 @@ public class FormDetailTransaksiResep extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

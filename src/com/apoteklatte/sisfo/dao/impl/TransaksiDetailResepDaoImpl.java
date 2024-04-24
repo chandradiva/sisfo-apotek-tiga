@@ -151,4 +151,30 @@ public class TransaksiDetailResepDaoImpl extends HibernateTemplate<TransaksiDeta
             session.close();
 	}
     }
+
+    @Override
+    public List<TransaksiDetailResep> getListDataByPasien(long pasienId, long resepId) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+	Query query = session.createQuery(""
+                + "FROM TransaksiDetailResep "
+                + "WHERE "
+                + "  transaksiResep.pasien.id = :pasienId AND "
+                + "  (:resepId = -1 OR transaksiResep.id = :resepId) "
+                + "ORDER BY id DESC")
+            .setCacheable(true)
+            .setCacheMode(CacheMode.REFRESH)
+            .setCacheRegion("frontpages");
+
+        query.setLong("pasienId", pasienId);
+        query.setLong("resepId", resepId);
+        
+	try {
+            return query.list();
+	} catch (Exception e) {
+            e.printStackTrace();
+            return null;
+	} finally {
+            session.close();
+	}
+    }
 }

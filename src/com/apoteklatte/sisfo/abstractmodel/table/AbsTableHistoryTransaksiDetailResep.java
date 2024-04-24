@@ -89,7 +89,7 @@ public class AbsTableHistoryTransaksiDetailResep extends AbstractTableModel{
         } else if (column == 7) {
             return "Tanggal Habis";
         } else {
-            return "Keterangan";
+            return "Keterangan Obat";
         }
     }
 

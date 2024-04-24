@@ -38,7 +38,7 @@ public class AbsTablePasien extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 8;
+        return 7;
     }
 
     @Override
@@ -56,14 +56,8 @@ public class AbsTablePasien extends AbstractTableModel {
             return listPasien.get(rowIndex).getGender();
         } else if (columnIndex == 5) {
             return listPasien.get(rowIndex).getAlamatPasien();
-        } else if (columnIndex == 6) {
-            return listPasien.get(rowIndex).getKeterangan();
         } else {
-            String tgl = "";
-            if (listPasien.get(rowIndex).getLastTglObatHabis() != null) {
-                tgl = sdf.format(listPasien.get(rowIndex).getLastTglObatHabis());
-            }
-            return tgl;
+            return listPasien.get(rowIndex).getKeterangan();
         }
     }
 
@@ -81,10 +75,8 @@ public class AbsTablePasien extends AbstractTableModel {
             return "Jenis Kelamin";
         } else if (column == 5) {
             return "Alamat";
-        } else if (column == 6) {
-            return "Keterangan";
         } else {
-            return "Tgl Obat Habis";
+            return "Keterangan";
         }
     }
 

@@ -177,7 +177,6 @@ public class FormRestorePasien extends javax.swing.JFrame {
         jTable1.getColumnModel().getColumn(4).setMaxWidth(100);
         jTable1.getColumnModel().getColumn(5).setMaxWidth(200);
         jTable1.getColumnModel().getColumn(6).setMaxWidth(200);
-        jTable1.getColumnModel().getColumn(7).setMaxWidth(180);
     }
     
     private void refreshTable() {

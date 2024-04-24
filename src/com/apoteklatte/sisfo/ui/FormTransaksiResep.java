@@ -17,7 +17,6 @@ import com.apoteklatte.sisfo.pojo.TransaksiDetailResep;
 import com.apoteklatte.sisfo.pojo.TransaksiResep;
 import com.apoteklatte.sisfo.utility.UtilityClass;
 import java.awt.Toolkit;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -156,7 +155,9 @@ public class FormTransaksiResep extends javax.swing.JFrame {
         txtNamaPasien = new javax.swing.JTextField();
         txtUmur = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        txtTgl = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtAlamatPasien = new javax.swing.JTextArea();
+        jButton11 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -173,6 +174,7 @@ public class FormTransaksiResep extends javax.swing.JFrame {
         dcTglDibuat = new com.toedter.calendar.JDateChooser();
         jLabel9 = new javax.swing.JLabel();
         txtNoResep = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
@@ -184,7 +186,7 @@ public class FormTransaksiResep extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Transaksi Resep Dokter");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Dokter", 0, 0, new java.awt.Font("Arial", 1, 13))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Dokter", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 13))); // NOI18N
         jPanel1.setMaximumSize(new java.awt.Dimension(440, 110));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -235,10 +237,9 @@ public class FormTransaksiResep extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel11))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtNama, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
@@ -270,7 +271,7 @@ public class FormTransaksiResep extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Pasien", 0, 0, new java.awt.Font("Arial", 1, 13))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Pasien", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 13))); // NOI18N
         jPanel2.setPreferredSize(new java.awt.Dimension(440, 142));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -304,11 +305,21 @@ public class FormTransaksiResep extends javax.swing.JFrame {
         txtUmur.setEnabled(false);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel10.setText("Tanggal Habis:");
+        jLabel10.setText("Alamat:");
 
-        txtTgl.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        txtTgl.setText("tanggal habis obat terakhir");
-        txtTgl.setEnabled(false);
+        txtAlamatPasien.setColumns(20);
+        txtAlamatPasien.setRows(5);
+        txtAlamatPasien.setText("alamat pasien");
+        txtAlamatPasien.setEnabled(false);
+        jScrollPane3.setViewportView(txtAlamatPasien);
+
+        jButton11.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jButton11.setText("View History");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -316,27 +327,31 @@ public class FormTransaksiResep extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(20, 20, 20)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNamaPasien, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
-                            .addComponent(txtUmur)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addGap(18, 18, 18))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel5)
+                            .addGap(20, 20, 20)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtTgl, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
+                        .addGap(53, 53, 53)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNamaPasien, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
+                            .addComponent(txtUmur))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -351,14 +366,20 @@ public class FormTransaksiResep extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jButton4)
                     .addComponent(txtUmur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtTgl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel10))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton11)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Daftar Obat", 0, 0, new java.awt.Font("Arial", 1, 13))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Daftar Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 13))); // NOI18N
 
         jTable1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -427,7 +448,7 @@ public class FormTransaksiResep extends javax.swing.JFrame {
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Resep", 0, 0, new java.awt.Font("Arial", 1, 13))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Resep", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 13))); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel6.setText("Tanggal Dibuat:");
@@ -436,7 +457,7 @@ public class FormTransaksiResep extends javax.swing.JFrame {
         jLabel7.setText("Tanggal Pengambilan:");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel8.setText("Keterangan:");
+        jLabel8.setText("Keterangan");
 
         dcTgl.setDateFormatString("dd / MM / yyyy");
         dcTgl.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -453,6 +474,9 @@ public class FormTransaksiResep extends javax.swing.JFrame {
         jLabel9.setText("Nomor Resep:");
 
         txtNoResep.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel12.setText("Resep:");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -472,7 +496,9 @@ public class FormTransaksiResep extends javax.swing.JFrame {
                             .addComponent(dcTglDibuat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtNoResep)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel12))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -494,7 +520,10 @@ public class FormTransaksiResep extends javax.swing.JFrame {
                     .addComponent(txtNoResep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel12))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -558,10 +587,10 @@ public class FormTransaksiResep extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -780,6 +809,21 @@ public class FormTransaksiResep extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton10ActionPerformed
 
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        if (__pasien == null) {
+            JOptionPane.showMessageDialog(rootPane, "Data Pasien harus dipilih terlebih dahulu");
+        } else {
+            this.setVisible(false);
+            FormHistoryTransaksiResepObatByPasien form = new FormHistoryTransaksiResepObatByPasien(this);
+            if (__pasien != null) {
+                form.setPasien(__pasien);
+                form.showData();
+            }
+
+            form.setVisible(true);
+        }
+    }//GEN-LAST:event_jButton11ActionPerformed
+
     private void clearDokter() {
         txtNama.setText("nama dokter");
         txtNoIzin.setText("no izin");
@@ -796,11 +840,7 @@ public class FormTransaksiResep extends javax.swing.JFrame {
     public void showDataPasien() {
         txtNamaPasien.setText(__pasien.getNamaPasien());
         txtUmur.setText(String.valueOf(__pasien.getUmurPasien()));
-        if (__pasien.getLastTglObatHabis() != null) {
-            txtTgl.setText(UtilityClass.formatDateToString(__pasien.getLastTglObatHabis()));
-        } else {
-            txtTgl.setText("");
-        }
+        txtAlamatPasien.setText(__pasien.getAlamatPasien());
     }
     
     public void showDetailObat() {
@@ -810,7 +850,7 @@ public class FormTransaksiResep extends javax.swing.JFrame {
     private void clearPasien() {
         txtNamaPasien.setText("nama pasien");
         txtUmur.setText("umur pasien");
-        txtTgl.setText("tanggal habis obat terakhir");
+        txtAlamatPasien.setText("alamat pasien");
         __pasien = null;
     }
     
@@ -830,7 +870,7 @@ public class FormTransaksiResep extends javax.swing.JFrame {
         jTable1.invalidate();
     }
     
-    public void addDataResep (ModelResepDetail resep) {
+    public void addDataResep(ModelResepDetail resep) {
         listDetail.add(resep);
         this.refreshTableDetail();
     }
@@ -878,6 +918,7 @@ public class FormTransaksiResep extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser dcTglDibuat;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -889,6 +930,7 @@ public class FormTransaksiResep extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -903,14 +945,15 @@ public class FormTransaksiResep extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextArea txtAlamatPasien;
     private javax.swing.JTextArea txtKet;
     private javax.swing.JTextField txtNama;
     private javax.swing.JTextField txtNamaPasien;
     private javax.swing.JTextField txtNoIzin;
     private javax.swing.JTextField txtNoResep;
     private javax.swing.JTextField txtTelp;
-    private javax.swing.JTextField txtTgl;
     private javax.swing.JTextField txtUmur;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,7 +6,6 @@ package com.apoteklatte.sisfo.ui;
 
 import com.apoteklatte.sisfo.abstractmodel.combo.AbsComboDokter;
 import com.apoteklatte.sisfo.abstractmodel.table.AbsTableHistoryTransaksiDetailResep;
-import com.apoteklatte.sisfo.abstractmodel.table.AbsTableTransaksiDetailResep;
 import com.apoteklatte.sisfo.dao.impl.DokterDaoImpl;
 import com.apoteklatte.sisfo.dao.impl.TransaksiDetailResepDaoImpl;
 import com.apoteklatte.sisfo.pojo.Dokter;
@@ -83,7 +82,7 @@ public class FormHistoryTransaksiResepObat extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("History Transaksi Resep Obat");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Filter Data Transaksi Resep Obat", 0, 0, new java.awt.Font("Arial", 1, 13))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Filter Data Transaksi Resep Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 13))); // NOI18N
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -120,7 +119,7 @@ public class FormHistoryTransaksiResepObat extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(cbNamaDokter, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 238, Short.MAX_VALUE)
                         .addComponent(jButton2)
                         .addGap(18, 18, 18)
                         .addComponent(jButton1)))
@@ -262,17 +261,15 @@ public class FormHistoryTransaksiResepObat extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(270, 270, 270)
-                        .addComponent(jLabel1)
-                        .addGap(0, 336, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(337, 337, 337)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -310,11 +307,13 @@ public class FormHistoryTransaksiResepObat extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Dokter selected = (Dokter) cbNamaDokter.getModel().getSelectedItem();
-        absTableTransaksiDetailResep = new AbsTableHistoryTransaksiDetailResep(transaksiDetailResepDaoImpl);
-        absTableTransaksiDetailResep.setListTransaksi(transaksiDetailResepDaoImpl.getListDataByDokter((int) selected.getId()));
-        jTable1.setModel(absTableTransaksiDetailResep);
-        this.settingTable();
-        jTable1.invalidate();
+        if (selected != null) {
+            absTableTransaksiDetailResep = new AbsTableHistoryTransaksiDetailResep(transaksiDetailResepDaoImpl);
+            absTableTransaksiDetailResep.setListTransaksi(transaksiDetailResepDaoImpl.getListDataByDokter((int) selected.getId()));
+            jTable1.setModel(absTableTransaksiDetailResep);
+            this.settingTable();
+            jTable1.invalidate();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

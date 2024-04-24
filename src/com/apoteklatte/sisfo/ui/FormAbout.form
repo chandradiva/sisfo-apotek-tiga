@@ -121,7 +121,7 @@
               <Properties>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="&#x9;  Aplikasi Desktop - Sistem Informasi Apotek Tiga&#xa;--------------------------------------------------------------------&#xa;Aplikasi ini merupakan aplikasi pencatatan Data Obat, Dokter, &#xa;Pasien, Distributor Obat. Aplikasi ini juga dapat melakukan&#xa;pencatatan data Transaksi Obat Masuk dan Transaksi Resep Obat.&#xa;&#xa;Version: 1.0&#xa;Release Date: 21 Agustus 2022"/>
+                <Property name="text" type="java.lang.String" value="&#x9;  Aplikasi Desktop - Sistem Informasi Apotek Tiga&#xa;--------------------------------------------------------------------&#xa;Aplikasi ini merupakan aplikasi pencatatan Data Obat, Dokter, &#xa;Pasien, Distributor Obat. Aplikasi ini juga dapat melakukan&#xa;pencatatan data Transaksi Obat Masuk dan Transaksi Resep Obat.&#xa;&#xa;Version: 1.1&#xa;Released Date: 21 Agustus 2022&#xa;Updated Date: 25 April 2024"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>

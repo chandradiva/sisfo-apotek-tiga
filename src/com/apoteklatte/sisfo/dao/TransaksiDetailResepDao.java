@@ -22,5 +22,6 @@ public interface TransaksiDetailResepDao {
     
     List<TransaksiDetailResep> getListDataByDokter(int dokterId);
     List<TransaksiDetailResep> getListDataByPasien(String name);
+    List<TransaksiDetailResep> getListDataByPasien(long pasienId, long resepId);
     boolean deleteData(int resepId);
 }
